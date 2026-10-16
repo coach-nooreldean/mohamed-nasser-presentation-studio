@@ -23,4 +23,7 @@ Thumbs.db
 # Temp files
 WhatsApp Image*.jpeg
 WhatsApp Image*.jpg
-.agents/
+# Keep skills in .agents
+.agents/*
+!.agents/skills/
+
