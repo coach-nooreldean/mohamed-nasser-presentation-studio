@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Outputs & Uploads (keep directories, ignore runtime generated files)
+output/*
+!output/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Operating System & IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temp files
+WhatsApp Image*.jpeg
+WhatsApp Image*.jpg
+.agents/

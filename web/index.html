@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استوديو عروض مستر محمد ناصر بدوي | AI Presentation Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0A1128;
+      --sea-blue: #162032;
+      --card-charcoal: rgba(22, 32, 50, 0.85);
+      --card-border: rgba(42, 63, 95, 0.6);
+      --orange-accent: #E5A93C;
+      --orange-glow: rgba(229, 169, 60, 0.35);
+      --light-blue: #4CC9F0;
+      --text-light: #F8F9FA;
+      --text-muted: #94A3B8;
+      --mint-green: #2EC4B6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(15, 76, 129, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(230, 126, 34, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(9, 25, 43, 0.9) 0%, var(--bg-dark) 100%);
+      background-attachment: fixed;
+      color: var(--text-light);
+      font-family: 'Cairo', 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      width: 100%;
+    }
+
+    /* Header Profile Strip */
+    .hero-header {
+      background: var(--card-charcoal);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--orange-accent);
+      box-shadow: 0 0 15px var(--orange-accent);
+    }
+
+    .teacher-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 85px;
+      height: 85px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid var(--orange-accent);
+      box-shadow: 0 0 20px var(--orange-glow);
+      flex-shrink: 0;
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .teacher-titles h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .teacher-titles p {
+      font-size: 0.95rem;
+      color: var(--light-blue);
+      font-weight: 600;
+    }
+
+    .contact-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 76, 129, 0.4);
+      border: 1px solid var(--card-border);
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .contact-pill:hover {
+      background: var(--sea-blue);
+      border-color: var(--orange-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(230, 126, 34, 0.25);
+    }
+
+    .contact-pill.wa {
+      border-color: rgba(46, 204, 113, 0.5);
+    }
+    .contact-pill.wa:hover {
+      border-color: var(--mint-green);
+    }
+
+    /* Studio Card */
+    .studio-card {
+      background: var(--card-charcoal);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .studio-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange-accent), var(--light-blue), transparent);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .section-title span.badge {
+      font-size: 0.75rem;
+      background: var(--orange-accent);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* Track Selector */
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .track-card {
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      cursor: pointer;
+      background: rgba(15, 76, 129, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .track-card:hover {
+      background: rgba(15, 76, 129, 0.35);
+      border-color: var(--light-blue);
+      transform: translateY(-3px);
+    }
+
+    .track-card.active {
+      border-color: var(--orange-accent);
+      background: rgba(230, 126, 34, 0.12);
+      box-shadow: 0 0 25px var(--orange-glow);
+    }
+
+    .track-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .track-icon {
+      font-size: 1.8rem;
+    }
+
+    .track-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .track-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Input Tabs */
+    .source-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      color: var(--text-light);
+      background: var(--sea-blue);
+      border-color: var(--light-blue);
+      box-shadow: 0 4px 15px rgba(15, 76, 129, 0.4);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: rgba(15, 25, 38, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--text-light);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--orange-accent);
+      box-shadow: 0 0 15px var(--orange-glow);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Drag & Drop Upload Zone */
+    .dropzone {
+      border: 2px dashed var(--light-blue);
+      background: rgba(15, 76, 129, 0.12);
+      border-radius: 16px;
+      padding: 35px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dropzone:hover, .dropzone.dragover {
+      background: rgba(15, 76, 129, 0.25);
+      border-color: var(--orange-accent);
+      transform: scale(1.01);
+    }
+
+    .dropzone-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--light-blue);
+    }
+
+    .dropzone-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .dropzone-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Action Button */
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 18px 25px;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px var(--orange-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(230, 126, 34, 0.6);
+      background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%);
+    }
+
+    .submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Status Notification */
+    .status-box {
+      margin-top: 25px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: rgba(44, 62, 80, 0.6);
+      border: 1px solid var(--card-border);
+      display: none;
+    }
+
+    .status-box.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .status-box.success {
+      border-color: var(--mint-green);
+      background: rgba(46, 204, 113, 0.12);
+    }
+
+    .status-box.error {
+      border-color: #E74C3C;
+      background: rgba(231, 76, 60, 0.12);
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      background: var(--mint-green);
+      color: #09192B;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .download-link:hover {
+      background: #27ae60;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .teacher-meta {
+        flex-direction: column;
+      }
+      .contact-badges {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Teacher Hero Card -->
+    <header class="hero-header">
+      <div class="teacher-meta">
+        <div class="avatar-wrapper">
+          <img src="teacher_avatar_card.png" alt="Mr. Mohamed Nasser Badawy">
+        </div>
+        <div class="teacher-titles">
+          <h1>مستر محمد ناصر بدوي</h1>
+          <p>MR. Mohamed Nasser Badawy</p>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 3px;">
+            معلم لغة إنجليزية للطلاب • مدرس تجويد ولغة عربية وقرآن للأعاجم
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-badges">
+        <a href="https://wa.me/201159330109" target="_blank" class="contact-pill wa">
+          <span>💬</span> واتساب: 01159330109
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100035868428460" target="_blank" class="contact-pill">
+          <span>🌐</span> فيسبوك الشخصي
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Generator Studio Card -->
+    <main class="studio-card">
+      <div class="section-title">
+        <span>⚡ استوديو توليد عروض الباوربوينت الذكية</span>
+        <span class="badge">SOFIAN EDITION</span>
+      </div>
+
+      <form id="generatorForm">
+        <!-- Track Selection -->
+        <div class="form-group">
+          <label class="form-label">اختر المسار التعليمي (Educational Track):</label>
+          <div class="track-grid">
+            <div class="track-card active" onclick="selectTrack('students', this)">
+              <input type="radio" name="track" value="students" checked>
+              <div class="track-icon">🎓</div>
+              <div class="track-name">مسار اللغة الإنجليزية للطلاب</div>
+              <div class="track-desc">شرح قواعد الجرامر، بطاقات المفردات، جداول مقارنة الأزمنة، وتدريبات الفهم.</div>
+            </div>
+
+            <div class="track-card" onclick="selectTrack('foreigners', this)">
+              <input type="radio" name="track" value="foreigners">
+              <div class="track-icon">📖</div>
+              <div class="track-name">مسار التجويد والقرآن للأعاجم</div>
+              <div class="track-desc">أحكام التجويد بالإنجليزية، مخارج الحروف، النطق الصوتي، والآيات التطبيقية.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Title -->
+        <div class="form-group">
+          <label class="form-label">عنوان الدرس / المحاضرة (Lesson Title):</label>
+          <input type="text" id="lessonTitle" class="form-control" placeholder="مثال: قواعد المضارع التام أو أحكام النون الساكنة والتنوين..." required>
+        </div>
+
+        <!-- Source Input Tabs -->
+        <div class="form-group">
+          <label class="form-label">مصدر المحتوى التعليمي:</label>
+          <div class="source-tabs">
+            <button type="button" class="tab-btn active" onclick="switchTab('file', this)">
+              <span>📁</span> رفع ملف (PDF / Word / TXT)
+            </button>
+            <button type="button" class="tab-btn" onclick="switchTab('youtube', this)">
+              <span>🎥</span> رابط فيديو يوتيوب
+            </button>
+            <button type="button" class="tab-btn" onclick="switchTab('text', this)">
+              <span>📝</span> كتابة أو لصق نص الدرس
+            </button>
+          </div>
+
+          <!-- Tab 1: File Upload -->
+          <div id="fileTab" class="tab-panel active">
+            <div class="dropzone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+              <input type="file" id="fileInput" style="display: none;" accept=".pdf,.docx,.doc,.txt,.md" onchange="handleFileSelect(event)">
+              <div class="dropzone-icon">📥</div>
+              <div class="dropzone-text" id="dropFileName">اضغط لاختيار ملف أو اسحبه وأفلته هنا</div>
+              <div class="dropzone-sub">يدعم ملفات PDF، Word (.docx)، والملفات النصية حتى 50MB</div>
+            </div>
+          </div>
+
+          <!-- Tab 2: YouTube Link -->
+          <div id="youtubeTab" class="tab-panel">
+            <input type="url" id="youtubeUrl" class="form-control" placeholder="https://www.youtube.com/watch?v=... أو https://youtu.be/...">
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+              سيقوم النظام بسحب الترجمة والنصوص التوضيحية وتلخيصها تلقائياً.
+            </div>
+          </div>
+
+          <!-- Tab 3: Text Input -->
+          <div id="textTab" class="tab-panel">
+            <textarea id="textContent" class="form-control" placeholder="الصق هنا الملاحظات أو النقاط التي ترغب في تحويلها لشرائح باوربوينت..."></textarea>
+          </div>
+        </div>
+
+        <!-- Optional Gemini API Key -->
+        <div class="form-group" style="margin-top: 25px;">
+          <label class="form-label" style="font-size: 0.85rem; color: var(--text-muted);">
+            مفتاح Google Gemini API (اختياري - إن لم يتوفر سيعمل المحرك الذكي المدمج أوفلاين):
+          </label>
+          <input type="password" id="geminiApiKey" class="form-control" placeholder="AIzaSy..." style="font-size: 0.85rem;">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="generateBtn" class="submit-btn">
+          <span>⚡</span> توليد عرض الباوربوينت المخصص الآن (Generate PPTX)
+        </button>
+      </form>
+
+      <!-- Live Status / Result -->
+      <div id="statusBox" class="status-box">
+        <div id="statusMessage" style="font-weight: 700;"></div>
+        <div id="statusDetails" style="font-size: 0.9rem; margin-top: 5px; color: var(--text-muted);"></div>
+        <div id="downloadContainer"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let currentSource = 'file';
+    let selectedFile = null;
+    let selectedTrack = 'students';
+
+    function selectTrack(track, el) {
+      selectedTrack = track;
+      document.querySelectorAll('.track-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      el.querySelector('input').checked = true;
+    }
+
+    function switchTab(tab, btn) {
+      currentSource = tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(tab + 'Tab').classList.add('active');
+    }
+
+    function handleFileSelect(e) {
+      if (e.target.files.length > 0) {
+        selectedFile = e.target.files[0];
+        document.getElementById('dropFileName').innerHTML = `✅ تم اختيار: <strong>${selectedFile.name}</strong> (${(selectedFile.size / 1024).toFixed(1)} KB)`;
+      }
+    }
+
+    // Drag and drop handlers
+    const dropZone = document.getElementById('dropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files.length > 0) {
+        selectedFile = e.dataTransfer.files[0];
+        document.getElementById('dropFileName').innerHTML = `✅ تم اختيار: <strong>${selectedFile.name}</strong> (${(selectedFile.size / 1024).toFixed(1)} KB)`;
+      }
+    });
+
+    // Form submission
+    document.getElementById('generatorForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('lessonTitle').value.trim();
+      const apiKey = document.getElementById('geminiApiKey').value.trim();
+      const statusBox = document.getElementById('statusBox');
+      const statusMsg = document.getElementById('statusMessage');
+      const statusDet = document.getElementById('statusDetails');
+      const downloadContainer = document.getElementById('downloadContainer');
+      const genBtn = document.getElementById('generateBtn');
+
+      statusBox.className = 'status-box active';
+      statusMsg.textContent = '⏳ جاري تحليل المحتوى وتوليد شرائح الباوربوينت السينمائية...';
+      statusDet.textContent = 'يتم الآن تطبيق ألوان Dark Cinema، وتوليد الرسوم الكارتونية التوضيحية للكلمات، وإدراج حركات الباوربوينت التتابعية...';
+      downloadContainer.innerHTML = '';
+      genBtn.disabled = true;
+
+      const formData = new FormData();
+      formData.append('track', selectedTrack);
+      formData.append('title', title);
+      formData.append('api_key', apiKey);
+      formData.append('source_type', currentSource);
+
+      if (currentSource === 'file') {
+        if (!selectedFile) {
+          alert('يرجى اختيار ملف أولاً');
+          genBtn.disabled = false;
+          statusBox.classList.remove('active');
+          return;
+        }
+        formData.append('file', selectedFile);
+      } else if (currentSource === 'youtube') {
+        const url = document.getElementById('youtubeUrl').value.trim();
+        if (!url) {
+          alert('يرجى إدخال رابط يوتيوب صالح');
+          genBtn.disabled = false;
+          statusBox.classList.remove('active');
+          return;
+        }
+        formData.append('youtube_url', url);
+      } else {
+        const text = document.getElementById('textContent').value.trim();
+        if (!text) {
+          alert('يرجى كتابة نص الدرس أو ملاحظاته');
+          genBtn.disabled = false;
+          statusBox.classList.remove('active');
+          return;
+        }
+        formData.append('text_content', text);
+      }
+
+      try {
+        const response = await fetch('/api/generate', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+        if (response.ok && data.success) {
+          statusBox.className = 'status-box active success';
+          statusMsg.textContent = '🎉 تم توليد العرض بنجاح وبأعلى جودة!';
+          statusDet.textContent = `اسم الملف: ${data.filename} (${data.slides_count} شرائح مجهزة بالكامل).`;
+          downloadContainer.innerHTML = `
+            <a href="${data.download_url}" download class="download-link">
+              📥 تحميل ملف الباوربوينت (${data.filename})
+            </a>
+          `;
+        } else {
+          throw new Error(data.error || 'حدث خطأ غير متوقع أثناء المعالجة');
+        }
+      } catch (err) {
+        statusBox.className = 'status-box active error';
+        statusMsg.textContent = '❌ حدث خطأ أثناء التوليد:';
+        statusDet.textContent = err.message;
+      } finally {
+        genBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
